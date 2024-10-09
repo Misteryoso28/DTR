@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTR Attendance</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background-color: white;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+        h1 {
+            margin: 0;
+            margin-left: 20px;
+            font-size: 1.5em;
+        }
+        main {
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            overflow-y: auto;
+        }
+        #current-time {
+            font-size: 24px;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+        #video {
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+        }
+        #result, #message {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #result {
+            font-size: 18px;
+        }
+        #message {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 80%;
+            max-width: 600px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            text-align: center;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" class="header-img" alt="Logo">
+        <h1>Daily Time Record</h1>
+    </header>
+    <main>
+        <div id="current-time">Current Time: --:--:--</div>
+        <video id="video" autoplay></video>
+        <div id="result">Waiting for QR code...</div>
+        <div id="message"></div>
+
+        <div class="manual-input">
+            <h2>Enter Your QR Code</h2>
+            <form id="manual-form">
+                <input type="text" id="manual-qr" placeholder="Enter QR Code" required>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </main>
+
+    <script src="jsQR.js"></script>
+    <script src="scanner.js"></script>
+</body>
+</html>
